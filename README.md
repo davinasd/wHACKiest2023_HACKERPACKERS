@@ -31,14 +31,19 @@
 
 ![Sign Up and 2 more pages - Personal - Microsoft​ Edge 28-01-2023 14_19_56](https://user-images.githubusercontent.com/108003314/215256750-6cd86b83-acf8-4b62-8ac7-55e99e0ed3c4.png)
 
-=>BACKEND
+=> BACKEND
 
 ![Sign Up and 2 more pages - Personal - Microsoft​ Edge 28-01-2023 14_22_16](https://user-images.githubusercontent.com/108003314/215256806-9635cdaa-44ce-412a-9077-4577a55874fa.png)
 
 ![Sign Up and 2 more pages - Personal - Microsoft​ Edge 28-01-2023 14_22_08](https://user-images.githubusercontent.com/108003314/215256802-a4be494d-d6cd-40b1-9133-b16fd968ce38.png)
 
-=>CHATBOT
+=> CHATBOT
 ![Sign Up and 2 more pages - Personal - Microsoft​ Edge 28-01-2023 14_23_12](https://user-images.githubusercontent.com/108003314/215256854-cb515344-f88e-42ea-b9a4-646704471f31.png)
+
+=> OUR PERSONALIZED RECOMMENDATIONS![Document and 4 more pages - Personal - Microsoft​ Edge 28-01-2023 14_26_27](https://user-images.githubusercontent.com/108003314/215257059-4ef8caac-76d7-4635-92f6-70c5d2f7e8d8.png)
+
+
+
 
 
 
