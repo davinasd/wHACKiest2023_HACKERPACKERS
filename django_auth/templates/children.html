@@ -1,0 +1,875 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+   
+   
+    #video-popup{
+        margin-top: 50px;
+    }
+    
+    a {
+        text-decoration: none;
+      }
+    #popup-video{
+        position: static;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        
+    }
+    #toggle-btn{
+     
+      
+            width:150px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 100;
+            font-family: 'Courier New', Courier, monospace;
+            display: inline-block;
+            margin-left: 0px;
+
+            padding:12px 0;
+            color:#009688;
+            border:0.5px solid #fff;
+            position:relative;
+            z-index: 1;
+            transition: 0.5s;
+        
+        
+
+    }
+    body {
+        background-color: white;
+      }
+      
+      #content {
+        color: black;
+      }
+      
+      .light-mode {
+        background-color: white;
+        color: black;
+        
+      }
+      
+      .dark-mode {
+        background-color: black;
+        color: white;
+      }
+    .bg-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+      }
+    
+    p{
+      font-family: 'Georgia', serif;
+      color: #009688;
+    }
+    h1{
+      font-family: 'Georgia', serif;
+      color: #009688;
+      text-align: center;
+    }
+    main{
+      text-align: center;
+    }
+    .l{
+      text-align: center;
+    }
+        
+  *{
+      margin:0;
+      padding: 0;
+      font-family: 'Kaushan Script', cursive;
+  }
+  #gh{
+      font-size: 30px;
+      letter-spacing: 2px;
+  }
+  #st{
+      font-size:85px;
+  }
+  #hi{
+      box-shadow: 20px 20px solid brown;
+  }
+  .bg-video {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   
+    z-index: -1;
+  }
+  .logo{
+      width:700px;
+      height:400px;
+      padding:2px 2px;
+      position: absolute;
+      top:2%;
+      left:-2%;
+  }
+  .banner-text{
+      text-align: center;
+      color:#009688;
+      padding-top:180px;
+  
+  }
+  .banner-text h1{
+      font-size: 130px;
+      font-family: 'Kaushan Script', cursive;
+  }
+  .banner-text p{
+      font-size: 20px;
+      font-style: italic;
+  
+  }
+  .banner-btn
+  {    text-align: center;
+      
+      }
+  .banner-btn a{
+      
+      width:150px;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 100;
+      font-family: 'Courier New', Courier, monospace;
+      display: inline-block;
+      margin: 0 10px;
+      padding:12px 0;
+      color:#009688;
+      border:0.5px solid #fff;
+      position:relative;
+      z-index: 1;
+      transition: 0.5s;
+  
+  }
+  .banner-btn a:hover span{
+      width:100%;
+      background:#009688;
+  
+  }
+  .banner-btn a:hover{
+      color:black;
+      background:#009688;
+      
+  }
+  
+  .banner-btn a span{
+      width:0;
+      height:100%;
+      position: absolute;
+      top:0;
+      left:0;
+      background:#009688;
+      z-index: -1;
+      transition:0.5s;
+  }
+  
+  #navside a{
+      font-size: 31px;
+      font-weight:500;
+      font-family: 'Times New Roman', Times, serif;
+      text-decoration: none;
+      color:white;
+      margin-bottom:25px;
+  
+  
+  }
+  
+  #navside.active{
+      right:0px;
+  }
+  
+  nav ul li {
+      list-style: none;
+      margin:50px 20px;
+  
+  }
+  nav ul li a{
+      text-decoration: none;
+      font-size: medium;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 25px;
+      color:#fff;
+  } 
+  #menu
+  {
+      width:78px;
+      height:55px;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: fixed;
+      
+      right: 30px;
+      top:20px;
+      border-radius: 3px;
+      z-index: 3;
+      cursor: pointer;
+  }
+  #menu i{
+      font-size: 39px;
+      
+  }
+  
+  
+  @media screen and (max-width:770px){
+      .banner-text h1{
+          font-size: 44px;
+          }
+          .banner-btn a{
+              display:block;
+              margin:20px auto;
+          }
+          .navside{
+              width:20px;
+  
+          }
+  }
+  
+  #services{
+  width:100%;
+  
+  margin-top: 300px;
+  }
+  .service-box{
+      width: 80%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      margin:auto;
+  }
+  .service-dec{
+      width:80%;
+      position: absolute;
+      bottom: 0%;
+      left: 50%;
+      opacity:0;
+      transform: translateX(-50%);
+      transition: 1s;
+  }
+  .service-dec h3{
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-weight: bold;
+      font-size: 30px;
+      
+  }
+  .service-dec p{
+      font-family:'Times New Roman', Times, serif;
+      font-weight: bold;
+      font-size: 19px;
+  }
+  .single-service:hover .service-dec{
+      bottom:40%;
+      opacity:1;
+  
+  }
+  
+  
+      .single-service{
+          flex-basis: auto;
+          text-align: center;
+          border-radius: 10px;
+          margin-bottom: 20px;
+          color:#fff ;
+          position: relative;
+      }
+      .single-service img{
+          border-radius: 7px;
+          width:100%;
+  
+      }
+      .overlay{
+          width:100%;
+          height:100%;
+          position:absolute;
+          top:0;
+          border-radius: 7px;
+          cursor:pointer;
+          background: linear-gradient(rgba(0,0,0,0.5),#963200);
+          opacity:0;
+          transition:1s;
+      }
+      .single-service :hover.overlay{
+          opacity:0.8;
+      }
+      hr{
+          background: #fff;
+          border:0;
+          height: 3px;
+          width: 60%;
+          margin:15px auto;
+          bottom:30%;
+  
+          
+     } 
+     
+     
+      
+  
+  #feature{
+      width:100%;
+      padding:70px 0;
+  }
+  .tittle-text{
+      align-items: center ;
+      text-align: center;
+      margin-top: 260px;
+      color: #009688;
+  }
+  .tittle-text p{
+      text-align: center;
+       font-weight: bold;
+       font-size: 20px;
+       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: auto;
+      padding: 20px;
+      color:#009688;
+      font-weight: bold;
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+  
+      
+  }
+  .tittle-text p::after{
+      content: '';
+      width:50px;
+      height:35px;
+      background :linear-gradient(#963220,#fff);
+      position:absolute;
+      left:0;
+      top:-20px;
+      z-index: -1;
+      transform: rotate(10deg);
+      border-top-left-radius: 35px;
+      border-bottom-right-radius:35px;
+  
+  
+  
+  }
+  
+  .tittle-text h1{
+      font-size: 50px;
+      padding bottom: 20px;
+  }
+  .feature-box{
+      width:900px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      text-align: center;
+      box-shadow: 2px 2px solid black;
+      width:900px;
+  
+  }
+  .feature-box{
+      width:80%;
+      
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      text-align: center;
+  }
+  .features
+  {
+      flex-basis:50%;;
+  }
+  #jk{
+      width:400px;
+  }
+  .features h1{
+      font-size: 45px;
+      text-align: left;
+      margin:bottom;
+      font-weight: 100;
+      color:#009688;
+      box-shadow: #963200;
+  }
+  #fr{
+      width:600px;
+      height:800px;
+  }
+  
+  
+  .features-img{
+      flex-basis: 50%;
+      margin:auto;
+      width:700px;
+      
+      
+  }
+  .features-img:hover{
+      width:700px;
+      border-radius: 15px;
+      height:400px;
+      box-shadow: 40px 40px solid brown;
+  
+     
+  }
+  .features-img img{
+      width:600px;
+      border-radius: 15px;
+      height:400px;
+  
+     
+  }
+  .features-desc {
+      display: flex;
+      align-items: center;
+      margin-bottom: 40px;
+      font-size: 28px;
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+  }
+  
+  
+  .feature-text p{
+      padding: 0 20px;
+      text-align: initial;
+  }
+  @media screen and (max-width:770px)
+   { .tittle-text h1{
+       font-size: 35px;
+        }
+        .feature{ 
+            flex-basis: 50%;
+        }   
+        .feature-img img{
+            width:100%;
+        }
+   }
+   
+      
+  
+   #t{
+      color:#009688;
+     width: 60px;
+     height: 50px;
+     border-radius: 05px;
+     font-size: 40px;
+     line-height: 45px;
+     border: 3px solid #963200;
+       }
+  
+       #slider {
+      overflow: hidden;
+      
+  }
+  #slider figure {
+      position: relative;
+      width: 500%;
+      
+      margin: 0;
+      left: 0;
+      animation: 20s slider infinite;
+  }
+  #slider figure img {
+      width: 20%;
+      float: left;
+  }
+  @keyframes slider {
+      0% {
+          left: 0;
+      }
+      20% {
+          left: 0;
+      }
+      25% {
+          left: -100%;
+      }
+      45% {
+          left: -100%;
+      }
+      50% {
+          left: -200%;
+      }
+      70% {
+          left: -200%;
+      }
+      75% {
+          left: -300%;
+      }
+      95% {
+          left: -300%;
+      }
+      100% {
+          left: -400%;
+      }
+  }
+       @media screen and (max-width:770px) {
+          .single-service{
+              flex-basis: 100%;
+              margin-bottom: 30px;
+          }
+          .service-dec{
+              font-size: 12px;
+          }
+          hr{
+              margin:5px auto;
+          }
+          single-service:hover .service-dec{
+      bottom:25% !important;
+          
+      }
+  }
+  
+  
+  
+  
+  
+  #testimonial{
+      width:96%;
+      padding:70px 0;
+  }
+  .testimonial-row{
+      width: 80%;
+      padding-right: 4px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-radius: 20px;
+  
+      flex-wrap: wrap;
+  }
+  .testimonial-column{
+      flex-basis: 28%;
+      height:280px;
+      padding: 10px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      background-color:linear-gradient(rgba(0,0,0,0.5),#963200);
+      box-shadow: 0 10px 20px 3px #2a2a29;
+      cursor: pointer;
+      transition: transform(0.5s);
+  }
+  .testimonial-column p {
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-size: 20px;
+      font-weight: bold;
+  }
+  .user h4{
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 30px;
+      font-weight: bold;
+  
+  }
+  .user small{
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 30px;
+      font-weight: bold;
+  
+  }
+  .user img{
+      width:80px;
+      border-radius: 8px;
+      margin-right: 20px;
+  }
+  .user-info.fa{
+      margin-left:10px;
+      color: #27c0ff;
+      font-size: 20px;
+  }
+  .user-info.small{
+      color: #009688;
+  }
+  .user{
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+  }
+    
+  .testimonial-column:hover{
+      transform: translateY(7px);
+  }
+  @media screen and (max-width:770px) 
+  {
+      .testimonial-column{
+          flex-basis: 100%;
+      }
+  }    
+  #footer{
+      padding: 100px 0 20px;
+  position: relative;
+      background: #efefef;
+  }
+  .footer-row{
+      width:80%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      font-family: Arial, Helvetica, sans-serif;
+  
+  
+  }
+  .footer-right{
+      flex-basis: 27%;
+      padding: 10px;
+      margin-bottom:20px;
+      }
+  .footer-left{
+      flex-basis: 45%;
+      padding: 10px;
+      margin-bottom:20px;
+  }
+  
+  
+  .footer-right p{
+      font-size: 25px;
+      font-family: Arial, Helvetica, sans-serif;
+  }
+  .footer-left p{
+      font-size: 25px;
+      font-family: Arial, Helvetica, sans-serif;
+  }
+  .footer-right h1{
+  font-size: 25px;
+  }
+  .footer-row h1{
+      margin:15px 0;
+  }
+  .footer-row p{
+      margin:10px;
+  }
+  .footer-left p .fa,.footer-right p .fa{
+      font-size: 30px;
+      color: #009688;
+      margin:10px;
+  }
+  .footer-img{
+      max-width: 370px;
+      opacity: 0.1;
+      position: absolute;
+      left:50%;
+      top:40%;
+      transform: translate(-50%,-50%);
+  
+  }
+  .social{
+      text-align: center;
+      font-size: 40px;
+         
+  }
+  #navside{
+              
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              list-style: none;
+              justify-content: flex-start;
+              position: fixed;
+              top:0;
+              text-decoration: none;
+              right:-350px;
+              height: 100vh;
+              width: 350px;
+              background-color:#009688;
+              color:#efefef;
+              box-shadow: 0 40px 60px rgb(0,0,0,0.1);   
+              padding: 80px 0 0 10px;
+              transition: 0.3s;         
+          }
+          #navside li{
+              margin-bottom: 25px;
+              color:white;
+          }
+        #navside.active{
+            right:0px;
+        }
+  #close{
+              color:black;
+              font-size: 30px;
+              top:30px;
+              left:30px;
+          }
+  #rd{
+      height: 40px;
+     line-height: 40px;
+      width:45px;
+      font-size: 30px;
+      border: 1px solid #963200;
+      margin:40px 5px 0;
+      color: #009688;
+      cursor: pointer;
+      transition:0.5s;
+  
+  
+  }
+  #rd:hover{
+      background: #009688;
+      color: #fff;
+      transform: translateY(-7px);
+  }
+  @media screen and (max-width:770px) {
+      .footer-left,.footer-right{
+          flex-basis: 100%;
+          font-size: 14px;
+      }
+      .footer-img{
+          top:25%;
+      }
+      
+  }
+  
+  
+  
+</style>
+<body><button id="toggle-btn" >CHANGE THEME</button>
+
+    <div id="content">
+          
+      <!-- Your content goes here -->
+      <section id="banner">
+        <div>
+          <div class = "banner-text">
+            
+            <div id="video-popup">
+                <video src="{% static 'videos/children.mp4' %}" width="1500" height="850" autoplay loop muted></video>
+            </div>
+           
+            <a href="#" id="popup-button"><h1 >CHILDREN</h1></a>
+              <p id="gh">The best places to travel are<br><br><br></p>
+  
+              <div class="banner-btn">
+                  <br>
+                  <br>
+                  <a href ="https://n0inr9rgqcd.typeform.com/to/keKGgHxG" id="jk"><span></span>ENTER THE DETAILS</a>
+      
+              </div>
+      </div>
+      </div>
+      </section>
+
+      <section id="services">           
+        <div class="tittle-text">  <section id="services">           
+            <div class="tittle-text2">
+                <h1 class="wep">PERSONALIZED TRAVEL ITINERARY</h1>
+            </div>
+            
+            <div class ="feature-box"#id="hi">
+                               
+                <div class="features-img" #id="hi">
+                   <img src="{% static 'images/end1.jpg' %}" alt="your_image"></a>
+                 
+    
+                </div>
+    
+                <div class="features-img" #id="hi"> <img src="{% static 'images/end2.png' %}" alt="your_image"></a>
+                  
+                    
+    
+                </div>
+                <div class="features-img" #id="hi"> <img src="{% static 'images/end3.jpg' %}" alt="your_image"></a>
+                </div>
+                <div class="features-img" #id="hi">
+                  <img src="{% static 'images/end4.png' %}" alt="your_image">
+            
+    
+                </div>
+                <div class="features-img" #id="hi">
+                  <img src="{% static 'images/end5.jpg' %}" alt="your_image">
+            
+    
+                </div>
+                <div class="features-img" #id="hi">
+                  <img src="{% static 'images/end6.png' %}" alt="your_image">
+            
+    
+                </div>
+          
+           
+            </div>
+        </div>
+         </section>
+            <br>
+            
+            <h1>TRAVEL BLOGS BY OUR USERS</h1>
+        </div>
+        <div class ="feature-box"#id="hi">
+
+            <div class="features-img" #id="hi">
+                
+                
+
+            </div>
+       
+            <div id="slider">
+                <figure>
+                    <img src="{% static 'images/c1.jpg' %}" alt="your_image">
+                    <img src="{% static 'images/c2.jpg' %}" alt="your_image">
+                    <img src="{% static 'images/c3.jpg' %}" alt="your_image">
+                </figure>
+            </div>
+        </div>
+   
+     </section>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("#video-popup").hide();
+            $("#popup-button").click(function(){
+                $("#video-popup").show();
+            });
+        });
+        const toggleBtn = document.getElementById("toggle-btn");
+        const content = document.getElementById("content");
+        let isLightMode = true;
+        
+        toggleBtn.addEventListener("click", function() {
+          if (isLightMode) {
+            content.classList.remove("light-mode");
+            content.classList.add("dark-mode");
+            isLightMode = false;
+          } else {
+            content.classList.remove("dark-mode");
+            content.classList.add("light-mode");
+            isLightMode = true;
+          }
+        });
+        let currentTime = new Date().getHours();
+if(currentTime > 7 && currentTime < 18){
+    content.classList.remove("dark-mode");
+    content.classList.add("light-mode");
+    isLightMode = true;
+}else{
+    content.classList.remove("light-mode");
+    content.classList.add("dark-mode");
+    isLightMode = false;
+}   
+let popupWindow = document.getElementById("popup-window");
+let closeBtn = document.getElementById("close-btn");
+
+window.onload = function() {
+    popupWindow.style.display = "block";
+};
+
+closeBtn.addEventListener("click", function() {
+  popupWindow.style.display = "none";
+});
+     
+    </script>
+ 
+
+    
+
+</body>
+</html>
